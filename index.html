@@ -152,6 +152,271 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/29/%E6%8C%87%E9%92%88/">指针</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/29/%E6%8C%87%E9%92%88/" class="archive-article-date">
+  	<time datetime="2020-02-28T17:17:13.868Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于指针的讨论"><a href="#关于指针的讨论" class="headerlink" title="关于指针的讨论"></a>关于指针的讨论</h1><h2 id="深入知识"><a href="#深入知识" class="headerlink" title="深入知识"></a>深入知识</h2><p>首先我们在这里定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>* p;</span><br></pre></td></tr></table></figure>
+
+
+<p>根据内存的知识我们知道，int变量x和int指针变量p，分配在一段连续的内存当中</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>x</th>
+<th>y</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td>8</td>
+<td>4</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>当我们在计算机里定义好变量之后，我们划分一定的内存空间给这些变量，对于一个int变量而言，内存中存储的值可以改变，可是x变量的地址是不会变的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = &amp;x;</span><br></pre></td></tr></table></figure>
+
+
+<p>这样我们可以使指针发挥用处，经过这个指令后，p中存储的是x变量的地址<br>我们知道，系统读取一个变量的值的过程：</p>
+<p>1、根据变量名找变量所在地址<br>2、根据地址找内存中存的值<br>因此，我们来看p的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; p;</span><br></pre></td></tr></table></figure>
+
+
+<p>此时，输出的将是一串地址，也就是变量x的地址<br>我们再输出解引用操作后的值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; *p;</span><br></pre></td></tr></table></figure>
+
+
+<p>此时输出的将是指针变量p所存储的地址中所存储的值<br>这样，我们对指针的基本工作有了一些了解</p>
+<p>此时输出的将是指针变量p所存储的地址中所存储的值<br>这样，我们对指针的基本工作有了一些了解</p>
+<h2 id="常量与指针"><a href="#常量与指针" class="headerlink" title="常量与指针"></a>常量与指针</h2><h2 id="前提：常量和变量不能互相赋值"><a href="#前提：常量和变量不能互相赋值" class="headerlink" title="前提：常量和变量不能互相赋值"></a>前提：常量和变量不能互相赋值</h2><p>首先我们列出所有的四种可能：<br>关系表格</p>
+<table>
+<thead>
+<tr>
+<th align="center">指针</th>
+<th>被指数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">变量Variable</td>
+<td>变量Variable</td>
+</tr>
+<tr>
+<td align="center">变量Variable</td>
+<td>常量Constant</td>
+</tr>
+<tr>
+<td align="center">常量Constant</td>
+<td>常量Constan</td>
+</tr>
+<tr>
+<td align="center">常量Constan</td>
+<td>变量Variable</td>
+</tr>
+</tbody></table>
+<p>这样对应着四种引用方式：</p>
+<h6 id="被指数据为变量："><a href="#被指数据为变量：" class="headerlink" title="被指数据为变量："></a>被指数据为变量：</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span>* p = &amp;x;</span><br></pre></td></tr></table></figure>
+
+<p>这是最常见的一种使用形式，我们对其进行分析</p>
+<h3 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h3><table>
+<thead>
+<tr>
+<th>指针</th>
+<th align="center">p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">目前存储x的地址，可更改，可解引用修改变量值</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th align="center">x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">目前是1，可随意变</td>
+</tr>
+</tbody></table>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x &#x3D; 1;</span><br><span class="line">int* const p &#x3D; &amp;x;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>指针</th>
+<th align="center">p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">x的地址，初始化后不可更改，不能通过解引用来修改变</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th align="center">x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">目前是1，可随意变</td>
+</tr>
+</tbody></table>
+<p>这里的指针，首先是 const 类型，说明指针变量所储存的值不可变，在这里也就是只能指向x，因此指针p无法使用解引用操作来修改变量x的值</p>
+<h6 id="被指数据为常量"><a href="#被指数据为常量" class="headerlink" title="被指数据为常量"></a>被指数据为常量</h6><h3 id="3、"><a href="#3、" class="headerlink" title="3、"></a>3、</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x =<span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* p = &amp;x;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>指针</th>
+<th align="center">p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">目前是x的地址，可以更改，不能解引用修改变量</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th align="center">x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">不可变</td>
+</tr>
+</tbody></table>
+<p>在这里，由于被指数据是一个常量，指针在这里可以理解为“只读”操作，它可以读取，但无法修改变量的值，也可以指向其他变量</p>
+<h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> p = &amp;i;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>指针</th>
+<th align="center">p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">目前是x的地址，不可以更改，不能解引用修改变量</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th align="center">x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存地址</td>
+<td align="center">不可变</td>
+</tr>
+<tr>
+<td>存储的值</td>
+<td align="center">不可变</td>
+</tr>
+</tbody></table>
+<p>这里的指针只能指向x，并且无法修改x的值，只有读取的功能</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于指针的了解，要深入到内存存储中来分析<br>访问指针变量的地址——读取地址中的存储的值（其他变量的地址）——访问对应地址存储的值——解引用操作得到需要的值</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/29/%E6%8C%87%E9%92%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
