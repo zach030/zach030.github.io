@@ -15,9 +15,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="关于指针的讨论深入知识首先我们在这里定义 123int x &#x3D; 1;int y &#x3D; 2;int* p;   根据内存的知识我们知道，int变量x和int指针变量p，分配在一段连续的内存当中    变量名 x y p    内存地址 8 4 0   当我们在计算机里定义好变量之后，我们划分一定的内存空间给这些变量，对于一个int变量而言，内存中存储的值可以改变，可是x变量的地址是不会变的 1p &#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-28T17:17:13.868Z">
-<meta property="article:modified_time" content="2020-02-28T17:29:41.947Z">
+<meta property="article:published_time" content="2020-02-28T17:37:09.000Z">
+<meta property="article:modified_time" content="2020-02-28T17:39:09.341Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="pointer">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -167,7 +168,7 @@
 
         
         <a href="/2020/02/29/%E6%8C%87%E9%92%88/" class="archive-article-date">
-  	<time datetime="2020-02-28T17:17:13.868Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
+  	<time datetime="2020-02-28T17:37:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
 </a>
         
       </header>
@@ -406,6 +407,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pointer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -596,6 +608,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pointer</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
