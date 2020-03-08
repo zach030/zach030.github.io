@@ -16,7 +16,7 @@
 <meta property="og:description" content="关于指针的讨论深入知识首先我们在这里定义 123int x &#x3D; 1;int y &#x3D; 2;int* p;   根据内存的知识我们知道，int变量x和int指针变量p，分配在一段连续的内存当中    变量名 x y p    内存地址 8 4 0   当我们在计算机里定义好变量之后，我们划分一定的内存空间给这些变量，对于一个int变量而言，内存中存储的值可以改变，可是x变量的地址是不会变的 1p &#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-28T17:37:09.000Z">
-<meta property="article:modified_time" content="2020-02-28T17:39:09.341Z">
+<meta property="article:modified_time" content="2020-03-08T03:00:10.074Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="pointer">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/categories">分类</a></li>
+	        
+				<li><a href="/archives">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -68,10 +70,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -118,6 +116,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -135,12 +135,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -419,6 +421,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/计算机组成原理//" class="article-tag-list-link color3">计算机组成原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -513,6 +526,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于指针的讨论"><span class="toc-number">1.</span> <span class="toc-text">关于指针的讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深入知识"><span class="toc-number">1.1.</span> <span class="toc-text">深入知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常量与指针"><span class="toc-number">1.2.</span> <span class="toc-text">常量与指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前提：常量和变量不能互相赋值"><span class="toc-number">1.3.</span> <span class="toc-text">前提：常量和变量不能互相赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#被指数据为变量："><span class="toc-number">1.3.0.0.0.1.</span> <span class="toc-text">被指数据为变量：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1、"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#被指数据为常量"><span class="toc-number">1.3.2.0.0.1.</span> <span class="toc-text">被指数据为常量</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -580,25 +606,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -620,6 +638,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pointer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">homework</a>
               </li>
             
             <div class="clearfix"></div>
@@ -665,38 +687,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
