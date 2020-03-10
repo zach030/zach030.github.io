@@ -154,6 +154,143 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-pat-1009" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/10/pat-1009/">pat-1009</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/10/pat-1009/" class="archive-article-date">
+  	<time datetime="2020-03-10T06:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PAT-1009"><a href="#PAT-1009" class="headerlink" title="PAT 1009"></a>PAT 1009</h1><h2 id="题目：给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出"><a href="#题目：给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出" class="headerlink" title="题目：给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出"></a>题目：给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><strong>输入格式：</strong></h3><p>测试输入包含一个测试用例，在一行内给出总长度不超过 80 的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用 1 个空格分开，输入保证句子末尾没有多余的空格。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a><strong>输出格式：</strong></h3><p>每个测试用例的输出占一行，输出倒序后的句子。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a><strong>输入样例：</strong></h3><p>Hello World Here I Come</p>
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a><strong>输出样例：</strong></h3><p>Come I Here World Hello</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在一行内给出总长度不超过 80 的字符串。字符串由若干单词和若干空格组成，</span></span><br><span class="line"><span class="comment">//其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用 1 个空格分开，输入保证句子末尾没有多余的空格</span></span><br><span class="line"><span class="comment">//输入样例 Hello World Here I Come</span></span><br><span class="line"><span class="comment">//输出样例 Come I Here World Hello</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; temp;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt; ans;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; v;</span><br><span class="line">	getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> i : str) &#123;</span><br><span class="line">		cnt++; <span class="comment">//用来计数</span></span><br><span class="line">		<span class="keyword">if</span> ((i == <span class="string">' '</span>)||(cnt == str.length() + <span class="number">1</span>)) &#123;</span><br><span class="line">			ans.push_back(temp); <span class="comment">//将一个单词存入ans中</span></span><br><span class="line">			temp.<span class="built_in">clear</span>();   <span class="comment">//清空临时存储单词的vector</span></span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		temp.push_back(i);  <span class="comment">//将单个字母存入vector</span></span><br><span class="line">	&#125;</span><br><span class="line">	ans.push_back(temp);</span><br><span class="line">	reverse(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">	<span class="comment">// 利用reverse对容器进行倒序</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> i : ans) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : i) </span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; j;</span><br><span class="line">		<span class="keyword">if</span> (i == ans.back())<span class="comment">//如果是ans中的最后一个元素，不用再输出空格</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>在学习了c++之后，我考虑用vector容器来解决问题</p>
+<table>
+<thead>
+<tr>
+<th>ans[0]</th>
+<th>ans[1]</th>
+<th>ans[2]</th>
+<th>ans[3]</th>
+<th>ans[4]</th>
+<th>ans[n]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单词1</td>
+<td>单词2</td>
+<td>单词3</td>
+<td>单词4</td>
+<td>单词5</td>
+<td>单词n</td>
+</tr>
+</tbody></table>
+<p>这是一个</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt; ans</span><br></pre></td></tr></table></figure>
+
+
+<p>用来存放char型vector的vector，是容器的一个嵌套</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> i : ans)</span><br></pre></td></tr></table></figure>
+
+<p>在这个基于范围的for循环中，<code>i</code>对应的就是<code>单词i</code></p>
+<h3 id="遇到的困难"><a href="#遇到的困难" class="headerlink" title="遇到的困难"></a>遇到的困难</h3><p>1、string类型的输入输出：直接使用cin/cout无法输入，经过查询使用了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getline(<span class="built_in">cin</span>, str)</span><br></pre></td></tr></table></figure>
+
+<p>2、写代码时经常出现“无法重载”的错误，在使用vector类型时，有时类型不对应，无法调用功能</p>
+<p>3、使用基于范围的for循环，需要另外添加条件来判断是否结束，在这个代码中我使用了cnt来和str.length()比较，要注意的是，在pat的gcc++的编译条件下，会有warning出现，因为cnt是有符号数，str.length()是无符号数</p>
+<p>4、调用reverse函数时，在pat的编译环境下要加上</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>5、同样在最后输出时，使用基于范围的for循环，要判断是否到最后一个元素，最后一个空格不能输出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i == ans.back())</span><br></pre></td></tr></table></figure>
+
+<p>使用判断条件，使用 下面这个错误</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans.<span class="built_in">end</span>()</span><br></pre></td></tr></table></figure>
+
+<p>ans.beck()返回当前vector容器中末尾元素的引用</p>
+<p>ans.end()返回一个当前vector容器中末尾元素的迭代器，要访问末尾元素,需要先将此迭代器减1</p>
+<blockquote>
+<p>back()函数返回最后一个元素的地址，end()返回尾地址，尾地址不指向任何存储的元素，而是标志vector的结束。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">onling-judge</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oj//" class="article-tag-list-link color3">oj</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/10/pat-1009/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-计组实验二（int与short的类型转换）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,6 +684,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">onling-judge</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">homework</a>
