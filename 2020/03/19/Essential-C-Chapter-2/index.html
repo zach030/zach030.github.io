@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: homework | Hexo</title>
+  <title>Essential C++ Chapter 2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/homework/index.html">
+  <meta name="description" content="Essential C++ Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Essential C++ Chapter 2">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/Essential-C-Chapter-2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Essential C++ Notes">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-19T14:24:14.000Z">
+<meta property="article:modified_time" content="2020-03-19T14:26:34.010Z">
 <meta property="article:author" content="Zach">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,72 +157,368 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Essential-C-Chapter-2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/08/%E8%AE%A1%E7%BB%84%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%88int%E4%B8%8Eshort%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-03-07T18:05:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/08/%E8%AE%A1%E7%BB%84%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%88int%E4%B8%8Eshort%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89/">计组实验二（int与short的类型转换）</a>
+    <h1 class="article-title" itemprop="name">
+      Essential C++ Chapter 2
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/19/Essential-C-Chapter-2/" class="archive-article-date">
+  	<time datetime="2020-03-19T14:24:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Essential-C-Notes"><a href="#Essential-C-Notes" class="headerlink" title="Essential C++ Notes"></a>Essential C++ Notes<a id="more"></a></h1><h2 id="Chapter-2-Procedural-Programming"><a href="#Chapter-2-Procedural-Programming" class="headerlink" title="Chapter 2 Procedural Programming"></a>Chapter 2 Procedural Programming</h2><h3 id="2-1-编写函数"><a href="#2-1-编写函数" class="headerlink" title="2.1 编写函数"></a>2.1 编写函数</h3><h4 id="2-1-1-四个部分"><a href="#2-1-1-四个部分" class="headerlink" title="2.1.1 四个部分"></a>2.1.1 四个部分</h4><ol>
+<li>返回类型</li>
+<li>函数名</li>
+<li>参数列表</li>
+<li>函数体</li>
+</ol>
+<h4 id="2-1-2-代码："><a href="#2-1-2-代码：" class="headerlink" title="2.1.2 代码："></a>2.1.2 代码：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">fibon_elem</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> &amp;elem)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pos &lt; <span class="number">0</span> || pos&gt;<span class="number">1024</span>) &#123;</span><br><span class="line">		elem = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	elem = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> n_2 = <span class="number">1</span>, n_1 = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ix = <span class="number">3</span>; ix &lt;= pos; ++ix) &#123;</span><br><span class="line">		elem = n_1 + n_2;</span><br><span class="line">		n_2 = n_1, n_1 = elem;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">print_sequence</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pos &lt;= <span class="number">0</span> || pos &gt; <span class="number">1024</span>) &#123;</span><br><span class="line">		<span class="built_in">cerr</span> &lt;&lt; <span class="string">"Invalid position: "</span> &lt;&lt; pos</span><br><span class="line">			&lt;&lt; <span class="string">" -- cannot handle request!\n"</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"The fibonacci Sequence for "</span></span><br><span class="line">		&lt;&lt; pos &lt;&lt; <span class="string">" positions:\n\t"</span>;</span><br><span class="line">	<span class="keyword">switch</span> (pos) &#123;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"1 "</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"1 "</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> elem;</span><br><span class="line">	<span class="keyword">int</span> n_2 = <span class="number">1</span>, n_1 = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ix = <span class="number">3</span>; ix &lt;= pos; ++ix) &#123;</span><br><span class="line">		elem = n_2 + n_1;</span><br><span class="line">		n_2 = n_1, n_1 = elem;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; elem &lt;&lt; ((!ix % <span class="number">10</span>) ? <span class="string">"\n\t"</span> : <span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pos;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Please enter a position:"</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; pos;</span><br><span class="line">	<span class="keyword">int</span> elem;</span><br><span class="line">	<span class="keyword">if</span> (fibon_elem(pos, elem))</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"element # "</span> &lt;&lt; pos</span><br><span class="line">		&lt;&lt; <span class="string">" is "</span> &lt;&lt; elem &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Sorry. Could not calculate element # "</span></span><br><span class="line">			&lt;&lt; pos &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	print_sequence(pos);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-1-3-代码分析："><a href="#2-1-3-代码分析：" class="headerlink" title="2.1.3 代码分析："></a>2.1.3 代码分析：</h4><ol>
+<li>考虑周到：这是一个实现斐波拉契数列的函数，定义了pos，在调用函数时考虑到了pos的取值范围，以及int型数据的最大范围，避免了错误产生</li>
+<li>bool类型函数：在这里使用了bool类型函数，函数返回的是true/false，要改变的值则是通过值引用来改变，便于通过返回值来辨别运行情况</li>
+</ol>
+<h3 id="2-2-调用函数"><a href="#2-2-调用函数" class="headerlink" title="2.2 调用函数"></a>2.2 调用函数</h3><h4 id="2-2-1-案例引入"><a href="#2-2-1-案例引入" class="headerlink" title="2.2.1 案例引入"></a>2.2.1 案例引入</h4><p>这一节书上借用了一个冒泡排序来讲解调用函数</p>
+<p>一个很经典的案例：swap( )函数，为什么在传入参数后，并没有改变原来的参数取值？</p>
+<h4 id="2-2-2-引用类型"><a href="#2-2-2-引用类型" class="headerlink" title="2.2.2 引用类型"></a>2.2.2 引用类型</h4><p>首先，借助知乎的回答，看一下引用和指针的区别：</p>
+<blockquote>
+<p>在C和C++中，指针一般指的是某块内存的<strong>地址</strong>，通过这个地址，我们可以寻址到这块内存；而引用是一个变量的<strong>别名</strong>，例如我们给小明起了个外号：明明，那我们说明明的时候，就是说小明。</p>
+<p>对于指针来说，它是一个地址，这个地址是一个数值，那么就意味这个数值可以为0(空指针)，也可以为其他，即指针可以不指向任何东西。</p>
+<p>而对于引用来说，他是一个外号，外号一定是“某个存在物体”的外号，所以引用不能为空，即不能存在空引用。</p>
+<p>根据以上可知指针和引用的一个重要不同：<strong>指针可以为空，引用不能为空。</strong>这就意味着我们拿到一个引用的时候，是不需要判断引用是否为空的，而拿到一个指针的时候，我们则需要判断它是否为空。这点经常在判断函数参数是否有效的时候使用。</p>
+<p>作者：知乎用户<br>链接：<a href="https://www.zhihu.com/question/37608201/answer/90293843" target="_blank" rel="noopener">https://www.zhihu.com/question/37608201/answer/90293843</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<blockquote>
+<p>A reference (&amp;) is like a constant pointer that is automatically<br>dereferenced. ——《Thinking in C++》Page 475</p>
+</blockquote>
+<p><strong>一个结论：引用是不能改变的指针</strong></p>
+<h5 id="2-2-2-1-引用的性质"><a href="#2-2-2-1-引用的性质" class="headerlink" title="2.2.2.1 引用的性质"></a>2.2.2.1 引用的性质</h5><ul>
+<li>Any changes made through the reference variable are actually performed on the original variable (通过引用所做的读写操作实际上是作用于原变量上).</li>
+<li>A reference must be initialized in declaration 引用必须在声明的时候初始化。</li>
+<li>Once initialized, the name of the reference cannot be assigned to other variables (引用一旦初始化，引用名字就不能再指定给其它变量)</li>
+</ul>
+<p>（一个思考）：引用占不占内存？因为我在网上看到不同的答案，暂时还无法给出唯一的答案</p>
+<h5 id="2-2-2-2-使用引用的理由"><a href="#2-2-2-2-使用引用的理由" class="headerlink" title="2.2.2.2 使用引用的理由"></a>2.2.2.2 使用引用的理由</h5><ol>
+<li>希望直接对传入对象进行修改</li>
+<li>降低复制大型对象的额外负担 </li>
+</ol>
+<p><strong>我的一个思考比喻</strong>：例如我们想在D盘就可以看到C盘的一个文件，有两种方法：</p>
+<ol>
+<li>直接将C盘文件全部复制过来</li>
+<li>创建一个快捷方式到D盘</li>
+</ol>
+<p>分析一下：第一种方式像我们常见的传值操作，复制过后，我们修改D盘内的文件，对C盘没有影响，可以理解为一种只读操作，在函数使用中，如果我们只想临时用，但不动它原本，这时我们可以直接传值</p>
+<p>第二种方式：我们看似是在D盘里，其实我们一点快捷方式，我们就进入了C盘，我们是对它本身进行操作</p>
+<p><strong>这里的快捷方式应该是引用（常量指针）而不是所有类型指针</strong>：快捷方式只对应了一个，如果我们可以改变改快捷方式所指向的位置，则就是指针。超链接的比喻似乎更恰当？我们可以简单的修改一个超链接，指向不同位置。（而且，超链接可以为空，没错，这个例子更贴切！）</p>
+<h4 id="2-2-3-代码"><a href="#2-2-3-代码" class="headerlink" title="2.2.3 代码"></a>2.2.3 代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ix = <span class="number">0</span>; ix &lt; vec.<span class="built_in">size</span>(); ++ix) </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; vec[ix] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;val1, <span class="keyword">int</span> &amp;val2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = val1;</span><br><span class="line">	val1 = val2;</span><br><span class="line">	val2 = temp; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ostream ofil("text_out1");</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ix = <span class="number">0</span>; ix &lt; vec.<span class="built_in">size</span>(); ++ix) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> jx = ix + <span class="number">1</span>; jx &lt; vec.<span class="built_in">size</span>(); ++jx) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vec[ix] &gt; vec[jx]) &#123;</span><br><span class="line">				<span class="comment">/*cout &lt;&lt; "about to call swap! "</span></span><br><span class="line"><span class="comment">					&lt;&lt; " ix: " &lt;&lt; ix &lt;&lt; " jx: " &lt;&lt; jx &lt;&lt; '\t'</span></span><br><span class="line"><span class="comment">					&lt;&lt; " swapping: " &lt;&lt; vec[ix]</span></span><br><span class="line"><span class="comment">					&lt;&lt; " with " &lt;&lt; vec[jx] &lt;&lt; endl;*/</span></span><br><span class="line">				swap(vec[ix], vec[jx]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ia[<span class="number">8</span>] = &#123;<span class="number">8</span>, <span class="number">34</span>, <span class="number">3</span>, <span class="number">13</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">5</span>, <span class="number">2</span> &#125;;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec&#123; ia,ia + <span class="number">8</span> &#125;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Vector before sort: "</span>;</span><br><span class="line">	<span class="built_in">display</span>(vec);</span><br><span class="line">	bubble_sort(vec);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Vector after sort: "</span>;</span><br><span class="line">	<span class="built_in">display</span>(vec);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-4-作用域及范围"><a href="#2-2-4-作用域及范围" class="headerlink" title="2.2.4 作用域及范围"></a>2.2.4 作用域及范围</h4><p>函数是暂时位于程序堆栈（内存的一块区域）之中，当函数调用结束，这块会被POP掉，因此函数内部定义的局部变量也不复存在。</p>
+<p>我们常用的retrun：我们开始说了函数的最开始就是返回类型 int / char …… ，再加上return后面的，就是一个完整的返回。</p>
+<p>对象在程序内的存活区域称为储存期( storage duration ) 或者范围( extent )</p>
+<p>对象的存活区域也就对应着对象的作用域( scope ) : local scope &amp; file scope</p>
+<p>file scope（全局）：static  extent  从main函数开始执行之前就已经分配好内存</p>
+<h4 id="2-2-5-动态内存管理"><a href="#2-2-5-动态内存管理" class="headerlink" title="2.2.5 动态内存管理"></a>2.2.5 动态内存管理</h4><p>local scope 或 file scope都是由系统自动管理，也就是说不用我们去开辟内存空间</p>
+<p>dynamic extent（动态范围）：由程序员从空闲空间分配出来，称为 heap memory （堆内存）</p>
+<p>通过 new 来完成， delete 来释放</p>
+<p><strong>计算机内存的四大区域：栈区，常量区，全局区，堆区（动态分配）</strong></p>
+<ol>
+<li>栈  区：在栈里面储存一些我们定义的局部变量以及形参；</li>
+<li>常量区：主要是储存一些字符常量；</li>
+<li>全局区：在全局区里储存一些全局变量和静态变量；</li>
+<li>堆    ：堆主要是通过动态分配的储存空间</li>
+</ol>
+<p><strong>内存分配方式及区别</strong>：</p>
+<blockquote>
+<p>1） 从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，static 变量。<br>2） 在栈上创建。在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。栈内存分配运算内置于处理器的指令集。<br>3） 从堆上分配，亦称动态内存分配程序在运行的时候用malloc 或new 申请任意多少的内存，程序员自己负责在何时用free 或delete 释放内存。动态内存的生存期由程序员决定，使用非常灵活，但问题也最多。</p>
+<p>tip（关于内存泄漏）：内存泄露是因为堆的空间被我们动态分配用完了，这样当我们再去使用动态分配堆的空间的时候就没有足够的空间让我们使用了，这样就需要占有原来的空间，也就是会把其他的空间来储存我们键入的值，这样会导致原来储存的数据被破坏掉，导致了内存的泄露了。</p>
+</blockquote>
+<p><strong>思考：为什么要动态分配内存？为啥不直接定义一个局部变量或者全局变量？</strong></p>
+<p>总结的话：最大限度的利用内存</p>
+<p>假设在一个函数体内，未到函数结束，系统分配的内存一直被占用，也就是局部变量和全局变量，如果是一个较大的程序，可能内存就不够用了。因此我们需要人为的去分配和释放，这样用完就空出内存空间。</p>
+<p>以链表的创建结点为例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">t</span>;</span></span><br><span class="line">t = (struct Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct Node));</span><br><span class="line">t-&gt;data = x;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有第二行的开辟空间，这里就会出错，就像下面这里如果没有第二行也会报错</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">p = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">*p = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“指针所占用的内存空间”和“指针指向的内存空间”</strong></p>
+<p><strong>！！！重要：</strong>一组代码对比：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p;</span><br><span class="line">p &#x3D; 3;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p;</span><br><span class="line">*p &#x3D; 3;</span><br></pre></td></tr></table></figure>
+
+<p>第一组代码正确，第二组错误，若在第二组代码的第二行加入动态分配内存就正确了。</p>
+<p>两组代码的第一行一样，第一行的代码作用是：定义了一个指针，也确定了类型，<strong>指针所占用的内存空间</strong>确定了，如果单纯对指针变量p进行操作是没有问题的，就像第一组代码一样；但是指针的作用是指向其他变量，<strong>指针指向的内存空间</strong>还未知，那么其他变量是什么呢？一定需要说明，也就是动态分配内存，这样我们就知道了指针变量所指向的区域，再解引用操作就没有错。</p>
+<h3 id="2-3-提供默认参数值"><a href="#2-3-提供默认参数值" class="headerlink" title="2.3 提供默认参数值"></a>2.3 提供默认参数值</h3><p>以参数传递来取代全局变量的原因：函数如果过度依赖定义于 file scope 中的对象，就比较难以在其它环境中重用，也难以做修改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;vec, ofstream *ofil = <span class="number">0</span>)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ofstream *ofil 直接定义为0，也就是默认值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> ix = <span class="number">0</span>; ix &lt; vec.<span class="built_in">size</span>(); ++ix) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> jx = ix + <span class="number">1</span>; jx &lt; vec.<span class="built_in">size</span>(); ++jx) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vec[ix] &gt; vec[jx]) &#123;</span><br><span class="line">				ofil &lt;&lt; <span class="string">"about to call swap! "</span></span><br><span class="line">					&lt;&lt; <span class="string">" ix: "</span> &lt;&lt; ix &lt;&lt; <span class="string">" jx: "</span> &lt;&lt; jx &lt;&lt; <span class="string">'\t'</span></span><br><span class="line">					&lt;&lt; <span class="string">" swapping: "</span> &lt;&lt; vec[ix]</span><br><span class="line">					&lt;&lt; <span class="string">" with "</span> &lt;&lt; vec[jx] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">				swap(vec[ix], vec[jx]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在函数调用时,不会产生问题</span></span><br><span class="line">bubble_sort(vec);</span><br></pre></td></tr></table></figure>
+
+<p>默认参数值的两个规则：</p>
+<ol>
+<li>默认值的解析操作必须从最右边开始：（***，默认值）;</li>
+<li>默认值只能指定一次，在函数声明和函数定义处，两者选一（为了更高的可见性 visiblity，我们将默认值放在函数声明处，并非定义处）</li>
+</ol>
+<h3 id="2-4-使用局部静态对象"><a href="#2-4-使用局部静态对象" class="headerlink" title="2.4 使用局部静态对象"></a>2.4 使用局部静态对象</h3><p><strong>局部静态对象: 在程序的执行路径第一次经过对象定义语句时初始化，并且直到程序终止才被销毁，在此期间即使对象所在的函数结束执行也不会对它有影响,静态对象只初始化一次</strong></p>
+<p>静态全局对象和一般的全局对象的区别：</p>
+<p>一般的全局对象在程序的其他文件中可以通过关键字extern来调用,而static声明的全局变量则只能在本文件中使用,这是链接性一个是外部的,一个是内部的!</p>
+<p>在前面求斐波拉契数列的前n项时</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibon_seq(<span class="number">24</span>);</span><br><span class="line">fibon_seq(<span class="number">8</span>);</span><br><span class="line">fibon_seq(<span class="number">13</span>);</span><br></pre></td></tr></table></figure>
+
+<p>第二和第三行的内容都包含在了第一行已经求过内部，如果再从头算，有点浪费时间了。</p>
+<p>因此我们用一个局部静态对象</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;* <span class="title">fibon_seq</span><span class="params">(<span class="keyword">int</span> <span class="built_in">size</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> max_size = <span class="number">1024</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; elems; <span class="comment">// 定义一个局部静态对象，用来存截至到size的斐波那契数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">size</span> &lt;= <span class="number">0</span> || <span class="built_in">size</span> &gt; max_size)&#123;</span><br><span class="line">        <span class="built_in">cerr</span> &lt;&lt; <span class="string">"fibon_seq(): oops: invalid size: "</span></span><br><span class="line">            &lt;&lt; <span class="built_in">size</span> &lt;&lt; <span class="string">" -- can't fulfill request.\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果size小于elem.size()，那么已经存好了，不用再重新计算，会直接跳过for循环</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ix = elems.<span class="built_in">size</span>(); ix &lt; <span class="built_in">size</span>; ++ix)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ix == <span class="number">0</span> || ix ==<span class="number">1</span>)</span><br><span class="line">            elems.push_back(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> elems.push_back( elems[ix<span class="number">-1</span>] + elems[ix<span class="number">-2</span>] );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &amp;elems;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-声明-inline-函数"><a href="#2-5-声明-inline-函数" class="headerlink" title="2.5 声明 inline 函数"></a>2.5 声明 inline 函数</h3><p>将函数声明为 inline，表示编译器在每个函数的调用点上，将函数的内容展开。</p>
+<p>将一个函数调用操作改为一份函数代码副本</p>
+<p><strong>使用函数的优缺点：</strong>（多用于频繁调用的短函数）</p>
+<ol>
+<li>函数易读易维护</li>
+<li>调用函数有开销</li>
+</ol>
+<p>内联函数：将代码插入到调用处，以空间换时间，会造成程序变大</p>
+<h3 id="2-6-提供重载函数"><a href="#2-6-提供重载函数" class="headerlink" title="2.6 提供重载函数"></a>2.6 提供重载函数</h3><p>参数列表不同（类型，个数之类）的多个函数有相同的名字</p>
+<p>名称相同，编译器用来看传的参数类型来选择对应的函数</p>
+<p><strong>注意：返回类型不能将函数重载</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ostream&amp; <span class="title">display_message</span><span class="params">(<span class="keyword">char</span> ch)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">display_message</span><span class="params">(<span class="keyword">char</span> ch)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这两个函数不能实现重载，只有返回类型不同</p>
+<p>注意：main函数不能重载</p>
+<h3 id="2-7-定义并使用模板函数"><a href="#2-7-定义并使用模板函数" class="headerlink" title="2.7 定义并使用模板函数"></a>2.7 定义并使用模板函数</h3><p>当我们发现每个函数的函数体相似，唯一区别在于参数的类型，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp;, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp;, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp;, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>将单一的函数内容与希望显示的各种vector类型绑定起来</p>
+<p>函数模板(function template):将参数类型抽离出来分为：明确类型（需要改变的），暂缓决定类型（不需要变）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> elemType&gt; <span class="comment">// typename是关键词名，elemType是我们需要改变的部分</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;msg, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;elemType&gt; &amp;vec)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ------</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样通过elemtype这个模板，我们可以自主定义不同类型的，而套用同一个函数</p>
+<p>模板函数同样可以重载，如果对于display_message()函数，例如list和vector</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> elemType&gt; <span class="comment">// vector</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;msg, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;elemType&gt; &amp;vec)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ------</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> elemType&gt; <span class="comment">// list</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display_message</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;msg, <span class="keyword">const</span> <span class="built_in">list</span>&lt;elemType&gt; &amp;lt)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ------</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-8-函数指针带来更大的弹性"><a href="#2-8-函数指针带来更大的弹性" class="headerlink" title="2.8 函数指针带来更大的弹性"></a>2.8 函数指针带来更大的弹性</h3><h4 id="2-8-1-函数指针的定义"><a href="#2-8-1-函数指针的定义" class="headerlink" title="2.8.1 函数指针的定义"></a>2.8.1 函数指针的定义</h4><p>首先我们知道：函数名被编译后是一个地址，因此我们也可以用指针取值向他</p>
+<p>每一个函数都占用一段内存单元，它们有一个<strong>起始地址</strong>，指向函数入口地址的指针称为<strong>函数指针</strong>(函数名)</p>
+<h4 id="2-8-2-语法"><a href="#2-8-2-语法" class="headerlink" title="2.8.2 语法"></a>2.8.2 语法</h4><p>在定义的时候，函数指针必须指明所指函数的返回类型和参数列表</p>
+<p>数据类型  (*指针变量名) (参数表);</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 举例：</span></span><br><span class="line"><span class="keyword">int</span> (*p)(<span class="keyword">int</span> a, <span class="keyword">int</span> b);  <span class="comment">//这里的*p就可以指向max函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-8-3-说明"><a href="#2-8-3-说明" class="headerlink" title="2.8.3 说明"></a>2.8.3 说明</h4><p>注意：</p>
+<p>1、<code>函数指针</code>的定义形式中的<code>数据类型</code>是指<code>函数的返回值的类型</code>。</p>
+<p>注意：指针的数据类型对应函数的返回类型；参数表一一对应</p>
+<p>2、区分</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*p)(<span class="keyword">int</span> a, <span class="keyword">int</span> b); <span class="comment">//p是一个指向函数的指针变量，所指函数的返回值类型为整型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">p</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>; <span class="comment">//p是函数名，此函数的返回值类型为整型指针</span></span><br></pre></td></tr></table></figure>
+
+<p>3、 <code>指向函数的指针变量</code>不是固定指向哪一个函数的，而只是表示定义了一个这样<strong>类型</strong>的变量，它是专门用来存放函数的入口地址的；在程序中把哪一个<code>函数的地址</code>赋给它，它就指向哪一个函数。</p>
+<p>4、 在给函数指针变量赋值时，只需给出函数名，而不必给出参数</p>
+<blockquote>
+<p>如函数max的原型为：int max(int x, int y);<br> 指针p的定义为：int (*p)(int a, int b);<br> 则p = max;的作用是将函数max的入口地址赋给指针变量p。这时，p就是指向函数max的指针变量，也就是p和max都指向函数的开头。</p>
+</blockquote>
+<p>5、在一个程序中，<code>指针变量p</code>可以先后指向不同的函数，但一个函数不能赋给一个不一致的函数指针（<code>即不能让一个函数指针指向与其类型不一致的函数</code>）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如有如下的函数：<span class="function"><span class="keyword">int</span> <span class="title">fn1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="function"><span class="keyword">int</span> <span class="title">fn2</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">定义如下的函数指针：<span class="keyword">int</span> (*p1)(<span class="keyword">int</span> a, <span class="keyword">int</span> b); <span class="keyword">int</span> (*p2)(<span class="keyword">int</span> a);</span><br><span class="line">则</span><br><span class="line">p1 = fn1; <span class="comment">//正确</span></span><br><span class="line">p2 = fn2; <span class="comment">//正确</span></span><br><span class="line">p1 = fn2; <span class="comment">//产生编译错误</span></span><br></pre></td></tr></table></figure>
+
+<p>6、定义了一个<code>函数指针</code>并让它<code>指向</code>了一个<code>函数</code>后，对函数的<code>调用</code>可以通过<code>函数名``调用</code>，也可以通过<code>函数指针调用</code>（即用指向函数的指针变量调用）。</p>
+<p>如语句：<code>c = (*p)(a, b);</code>//表示调用由p指向的函数(max)，实参为a,b，函数调用结束后得到的函数值赋给c。</p>
+<p>7、 函数指针只能指向函数的入口处，而不可能指向函数中间的某一条指令。不能用<code>*(p+1)</code>来表示函数的下一条指令。</p>
+<p>8、 <code>函数指针变量</code>常用的用途之一是<code>把指针</code>作为<code>参数</code>传递到其他<code>函数</code></p>
+<h4 id="2-8-4-实例"><a href="#2-8-4-实例" class="headerlink" title="2.8.4 实例"></a>2.8.4 实例</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="comment">//求最大数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="comment">//求最小数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="comment">//求和</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span>(*p)(<span class="keyword">int</span> a, <span class="keyword">int</span> b))</span></span>; <span class="comment">//应用函数指针</span></span><br><span class="line"><span class="comment">//                             指向函数的指针，对应max，min，add</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span>(*p)(<span class="keyword">int</span> a, <span class="keyword">int</span> b))</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p(i, j) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    process(x, y, max);     <span class="comment">// 将函数调用参数进行调用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>tip：部分借鉴于<a href="https://www.jianshu.com/p/405a81d8e7b4" target="_blank" rel="noopener">https://www.jianshu.com/p/405a81d8e7b4</a></strong></p>
+<p><strong>作者：羽裳有涯</strong><br><strong>链接：<a href="https://www.jianshu.com/p/405a81d8e7b4" target="_blank" rel="noopener">https://www.jianshu.com/p/405a81d8e7b4</a></strong><br><strong>来源：简书</strong><br><strong>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</strong></p>
+<h3 id="2-9-设定头文件"><a href="#2-9-设定头文件" class="headerlink" title="2.9 设定头文件"></a>2.9 设定头文件</h3><h4 id="1、将函数的声明放在头文件内"><a href="#1、将函数的声明放在头文件内" class="headerlink" title="1、将函数的声明放在头文件内"></a>1、将函数的声明放在头文件内</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NumSeq.h</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span>    <span class="title">seq_elem</span><span class="params">( <span class="keyword">int</span> pos, <span class="keyword">int</span> &amp;elem )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; *<span class="title">fibon_seq</span><span class="params">( <span class="keyword">int</span> size )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; *<span class="title">lucas_seq</span><span class="params">( <span class="keyword">int</span> size )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; *<span class="title">pell_seq</span><span class="params">( <span class="keyword">int</span> size )</span></span>;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// 这些都是函数的声明，通常不把定义放在头文件内</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>关于inline函数：<strong>inline函数的定义要写在头文件里</strong></p>
+<ol>
+<li>如果一个inline函数会在多个源文件中被用到，那么必须把它定义在头文件中。</li>
+<li>inline是加在实现上，就算加在声明上，编译器也会忽略掉。</li>
+<li>内联展开是在编译时进行的，只有链接的时候源文件之间才有关系。所以内联要想跨源文件必须把实现写在头文件里</li>
+</ol>
+<p><strong>备注：</strong></p>
+<p>1）如果在头文件中定义非inline函数，一旦该头文件被多个文件包含，就会造成该非inline函数的“重定义”，因而，不建议将非inline函数的定义放在头文件中，但是非inline函数的声明是可以放在头文件中的。</p>
+<p>2）inline函数可以省去函数调用的开销，从而提高函数的执行效率，但是如果函数体内代码的执行时间相比于函数调用时间长的多的话，inline函数也就没有什么优势了。</p>
+<h4 id="2、注意"><a href="#2、注意" class="headerlink" title="2、注意"></a><strong>2、注意</strong></h4><p>在file scope（全局范围）内定义的对象，如果可能被多个文件访问，我们应该将其放在头文件内</p>
+<h4 id="3、引用的方法"><a href="#3、引用的方法" class="headerlink" title="3、引用的方法"></a>3、<strong>引用的方法</strong></h4><p>对头文件引用的时候注意：使用&lt; &gt;和” “</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"NumSeq.h"</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用 “ “ ：头文件和包含此文件的程序代码文件位于同一磁盘目录下</li>
+<li>使用 &lt; &gt;: 处于不同磁盘目录下</li>
+</ol>
+<p>更专业的回答：如果被认定是标准的或项目专属的头文件，我们便用尖括号，在默认磁盘目录下搜索</p>
+<p>如果是引号，则认为是用户提供的，在包含此文件的磁盘目录下搜索 </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">homework</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/计算机组成原理//" class="article-tag-list-link color3">计算机组成原理</a>
+        			<a href="/categories/book-note//" class="article-tag-list-link color5">book note</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/19/Essential-C-Chapter-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/10/PAT-1004/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PAT-1004</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Essential-C-Notes"><span class="toc-number">1.</span> <span class="toc-text">Essential C++ Notes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Procedural-Programming"><span class="toc-number">1.1.</span> <span class="toc-text">Chapter 2 Procedural Programming</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-编写函数"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1 编写函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-四个部分"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">2.1.1 四个部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-代码："><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2.1.2 代码：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-代码分析："><span class="toc-number">1.1.1.3.</span> <span class="toc-text">2.1.3 代码分析：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-调用函数"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.2 调用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-案例引入"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">2.2.1 案例引入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-引用类型"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2.2.2 引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-1-引用的性质"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">2.2.2.1 引用的性质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-2-使用引用的理由"><span class="toc-number">1.1.2.2.2.</span> <span class="toc-text">2.2.2.2 使用引用的理由</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-代码"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">2.2.3 代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-作用域及范围"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">2.2.4 作用域及范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5-动态内存管理"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">2.2.5 动态内存管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-提供默认参数值"><span class="toc-number">1.1.3.</span> <span class="toc-text">2.3 提供默认参数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-使用局部静态对象"><span class="toc-number">1.1.4.</span> <span class="toc-text">2.4 使用局部静态对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-声明-inline-函数"><span class="toc-number">1.1.5.</span> <span class="toc-text">2.5 声明 inline 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-提供重载函数"><span class="toc-number">1.1.6.</span> <span class="toc-text">2.6 提供重载函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-定义并使用模板函数"><span class="toc-number">1.1.7.</span> <span class="toc-text">2.7 定义并使用模板函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-函数指针带来更大的弹性"><span class="toc-number">1.1.8.</span> <span class="toc-text">2.8 函数指针带来更大的弹性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-1-函数指针的定义"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">2.8.1 函数指针的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-2-语法"><span class="toc-number">1.1.8.2.</span> <span class="toc-text">2.8.2 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-3-说明"><span class="toc-number">1.1.8.3.</span> <span class="toc-text">2.8.3 说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-4-实例"><span class="toc-number">1.1.8.4.</span> <span class="toc-text">2.8.4 实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-设定头文件"><span class="toc-number">1.1.9.</span> <span class="toc-text">2.9 设定头文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、将函数的声明放在头文件内"><span class="toc-number">1.1.9.1.</span> <span class="toc-text">1、将函数的声明放在头文件内</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、注意"><span class="toc-number">1.1.9.2.</span> <span class="toc-text">2、注意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、引用的方法"><span class="toc-number">1.1.9.3.</span> <span class="toc-text">3、引用的方法</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
 
+  
+
+  
 
           </div>
         </div>
@@ -256,9 +557,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
